@@ -1,5 +1,3 @@
-// const authToken = '';
-
 document.addEventListener('DOMContentLoaded', function () {
   const tweetForm = document.getElementById('tweetForm');
   const tweetInput = document.getElementById('tweetInput');
@@ -73,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function () {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
-        // 'Authorization' : 'Bearer '+authToken
+        'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlcnJ5IiwiaWF0IjoxNzA3NzMwNjg4LCJleHAiOjE3MDc4MTcwODh9.bXcyjcEYVi7Vz2tpoFwIM1lZxEp44kXE8kLW_IyT-yY'
       },
-      body: ({
+      body: JSON.stringify({
         'username': '',
         'content': post
       })
@@ -86,17 +84,60 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
   }
+
+  var sessionToken = '';
+
+  async function apiLogin(){
+    try{
+      //Login part
+      const lreq = await fetch("http://localhost:3000/api/v1/auth/login", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "username": "terry",
+          "password": "wahoo"
+        })
+      });
+      // .then()
+      // // .then(res => res.json())
+      // .then(data => console.log("Data: ", data))
+      // .then(console.log("aaaaa"))
+      //   .catch(error => console.log("An error has occurred: ", error))
+      
+      if(lreq.ok){
+        const authToken = await lreq.text();
+        localStorage.setItem('authToken', authToken);
+        sessionToken = localStorage.getItem(authToken);
+        console.log("Login successful")
+        var appendtest = 'Bearer '+authToken
+        console.log('Append test', appendtest); 
+        console.log('Token: ',authToken);
+      }
+      else{
+        console.log('Login error');
+        const lreqError = await lreq.text();
+        console.error(errorData);
+      }
+    }
+    catch(lreqError){
+      console.error('Error occurred during login: ', lreqError);
+    }
+  }
   
   function populateFeed(){
     fetch('http://localhost:3000/api/v1/posts', {
     method: 'GET',
     headers: {
-      'Content-type': 'application.json',
-      // 'Authorization' : 'Bearer '+authToken
+      'Content-type': 'application/json',
+      'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlcnJ5IiwiaWF0IjoxNzA3NzMwNjg4LCJleHAiOjE3MDc4MTcwODh9.bXcyjcEYVi7Vz2tpoFwIM1lZxEp44kXE8kLW_IyT-yY'
     }
   })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      console.log(data)
+    })
     .then(posts => {
       posts.forEach(post => {
         addPost(post);
@@ -107,7 +148,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
   
-  // populateFeed();
+  apiLogin();
+  populateFeed();
 
   tweetForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -156,33 +198,40 @@ const regDetails = {
 //   }
 // }
 
-async function apiLogin(){
-  try{
-    //Login part
-    const lreq = await fetch("http://localhost:3000/api/v1/auth/login", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(regDetails)
-    })
-
-    if (lreq.ok){
-      const lreqData = await lreq.text;
-      console.log("User logged in: ", lreqData);
-      console.log(lreqData);
-    }
-    else{
-      const reqError = await lreq.json;
-      throw(reqError);
-    }
-  }
-  catch(reqError){
-    console.error('Error occurred during login: ', reqError);
-  }
-}
+// async function apiLogin(){
+//   try{
+//     //Login part
+//     const lreq = await fetch("http://localhost:3000/api/v1/auth/login", {
+//       method: "POST",
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(regDetails)
+//     });
+//     // .then()
+//     // // .then(res => res.json())
+//     // .then(data => console.log("Data: ", data))
+//     // .then(console.log("aaaaa"))
+//     //   .catch(error => console.log("An error has occurred: ", error))
+    
+//     if(lreq.ok){
+//       const authToken = await lreq.text();
+//       localStorage.setItem('authToken', authToken);
+//       console.log("Login successful")
+//       console.log(authToken); 
+//     }
+//     else{
+//       console.log('Login error');
+//       const lreqError = await lreq.text();
+//       console.error(errorData);
+//     }
+//   }
+//   catch(lreqError){
+//     console.error('Error occurred during login: ', lreqError);
+//   }
+// }
 
 // apiReg();
-apiLogin();
+// apiLogin();
 
 // console.log(authToken);

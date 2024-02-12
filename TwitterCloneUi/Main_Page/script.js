@@ -1,3 +1,5 @@
+const authToken = '';
+
 document.addEventListener('DOMContentLoaded', function () {
   const tweetForm = document.getElementById('tweetForm');
   const tweetInput = document.getElementById('tweetInput');
@@ -60,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return postElement;
   }
+  
+  
 
   function addPost(post) {
     const postElement = createPostElement(post);
@@ -68,10 +72,11 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:3000/api/v1/posts', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json'
+        'Content-type': 'application/json',
+        'Authorization' : 'Bearer '+authToken
       },
       body: ({
-        'usernane': '',
+        'username': '',
         'content': post
       })
     })
@@ -86,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:3000/api/v1/posts', {
     method: 'GET',
     headers: {
-      'Content-type': 'application.json'
+      'Content-type': 'application.json',
+      'Authorization' : 'Bearer '+authToken
     }
   })
     .then(response => response.json())
@@ -113,3 +119,68 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+const regDetails = {
+    "username": "terry",
+    "password": "wahoo"
+  }
+
+//Register with static details for testing, adapt later for user inputted data
+// async function apiReg(){
+//   //Hardcoded username & password
+  
+
+//   try{
+//     const req = await fetch("http://localhost:3000/api/v1/auth/register", {
+//       method: "POST",
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(regDetails)
+//     });
+//     if (req.ok){
+//       const reqData = await req.json;
+//       console.log("User created: ", reqData);
+
+
+      
+
+//     }
+//     else{
+//       const reqError = await req.json;
+//       throw(reqError);
+//     }
+//   }
+//   catch(reqError){
+//     console.error('Error occurred during registration: ', reqError);
+//   }
+// }
+
+async function apiLogin(){
+  try{
+    //Login part
+    const lreq = await fetch("http://localhost:3000/api/v1/auth/login", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(regDetails)
+    })
+
+    if (lreq.ok){
+      const lreqData = await lreq.json;
+      console.log("User logged in: ", regDetails);
+    }
+    else{
+      const reqError = await lreq.json;
+      throw(reqError);
+    }
+  }
+  catch(reqError){
+    console.error('Error occurred during login: ', reqError);
+  }
+}
+
+// apiReg();
+apiLogin();
+console.log(authToken);

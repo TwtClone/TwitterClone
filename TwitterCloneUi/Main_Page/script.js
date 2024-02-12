@@ -1,4 +1,4 @@
-const authToken = '';
+// const authToken = '';
 
 document.addEventListener('DOMContentLoaded', function () {
   const tweetForm = document.getElementById('tweetForm');
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
-        'Authorization' : 'Bearer '+authToken
+        // 'Authorization' : 'Bearer '+authToken
       },
       body: ({
         'username': '',
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     method: 'GET',
     headers: {
       'Content-type': 'application.json',
-      'Authorization' : 'Bearer '+authToken
+      // 'Authorization' : 'Bearer '+authToken
     }
   })
     .then(response => response.json())
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
   
-  populateFeed();
+  // populateFeed();
 
   tweetForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -168,8 +168,9 @@ async function apiLogin(){
     })
 
     if (lreq.ok){
-      const lreqData = await lreq.json;
-      console.log("User logged in: ", regDetails);
+      const lreqData = await lreq.text;
+      console.log("User logged in: ", lreqData);
+      console.log(lreqData);
     }
     else{
       const reqError = await lreq.json;
@@ -183,4 +184,5 @@ async function apiLogin(){
 
 // apiReg();
 apiLogin();
-console.log(authToken);
+
+// console.log(authToken);

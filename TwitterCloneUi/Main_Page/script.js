@@ -60,8 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return postElement;
   }
+
   
-  
+  var authToken = localStorage.getItem(authToken);
 
   function addPost(post) {
     const postElement = createPostElement(post);
@@ -71,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
-        'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlcnJ5IiwiaWF0IjoxNzA3NzMwNjg4LCJleHAiOjE3MDc4MTcwODh9.bXcyjcEYVi7Vz2tpoFwIM1lZxEp44kXE8kLW_IyT-yY'
+        'Authorization' : 'Bearer '+authToken
       },
       body: JSON.stringify({
         'username': '',
@@ -84,54 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
   }
-
-  var sessionToken = '';
-
-  async function apiLogin(){
-    try{
-      //Login part
-      const lreq = await fetch("http://localhost:3000/api/v1/auth/login", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          "username": "terry",
-          "password": "wahoo"
-        })
-      });
-      // .then()
-      // // .then(res => res.json())
-      // .then(data => console.log("Data: ", data))
-      // .then(console.log("aaaaa"))
-      //   .catch(error => console.log("An error has occurred: ", error))
-      
-      if(lreq.ok){
-        const authToken = await lreq.text();
-        localStorage.setItem('authToken', authToken);
-        sessionToken = localStorage.getItem(authToken);
-        console.log("Login successful")
-        var appendtest = 'Bearer '+authToken
-        console.log('Append test', appendtest); 
-        console.log('Token: ',authToken);
-      }
-      else{
-        console.log('Login error');
-        const lreqError = await lreq.text();
-        console.error(errorData);
-      }
-    }
-    catch(lreqError){
-      console.error('Error occurred during login: ', lreqError);
-    }
-  }
   
   function populateFeed(){
     fetch('http://localhost:3000/api/v1/posts', {
     method: 'GET',
     headers: {
       'Content-type': 'application/json',
-      'Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlcnJ5IiwiaWF0IjoxNzA3NzMwNjg4LCJleHAiOjE3MDc4MTcwODh9.bXcyjcEYVi7Vz2tpoFwIM1lZxEp44kXE8kLW_IyT-yY'
+      'Authorization' : 'Bearer '+authToken
     }
   })
     .then(response => response.json())
@@ -147,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error('Error fetching posts:', error);
     });
   }
-  
-  apiLogin();
+
+  // apiLogin("terry", "wahoo");
   populateFeed();
 
   tweetForm.addEventListener('submit', function (event) {
@@ -162,76 +122,71 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-const regDetails = {
-    "username": "terry",
-    "password": "wahoo"
+//Register (NOTE: Move to login page)
+async function apiReg(){
+  try{
+    const req = await fetch("http://localhost:3000/api/v1/auth/register", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "username": "terry",
+        "password": "wahoo"
+      })
+    });
+    if (req.ok){
+      const reqData = await req.json;
+      console.log("User created: ", reqData);
+    }
+    else{
+      const reqError = await req.json;
+      throw(reqError);
+    }
   }
+  catch(reqError){
+    console.error('Error occurred during registration: ', reqError);
+  }
+}
 
-//Register with static details for testing, adapt later for user inputted data
-// async function apiReg(){
-//   //Hardcoded username & password
-  
-
-//   try{
-//     const req = await fetch("http://localhost:3000/api/v1/auth/register", {
-//       method: "POST",
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(regDetails)
-//     });
-//     if (req.ok){
-//       const reqData = await req.json;
-//       console.log("User created: ", reqData);
-
-
-      
-
-//     }
-//     else{
-//       const reqError = await req.json;
-//       throw(reqError);
-//     }
-//   }
-//   catch(reqError){
-//     console.error('Error occurred during registration: ', reqError);
-//   }
-// }
-
-// async function apiLogin(){
-//   try{
-//     //Login part
-//     const lreq = await fetch("http://localhost:3000/api/v1/auth/login", {
-//       method: "POST",
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(regDetails)
-//     });
-//     // .then()
-//     // // .then(res => res.json())
-//     // .then(data => console.log("Data: ", data))
-//     // .then(console.log("aaaaa"))
-//     //   .catch(error => console.log("An error has occurred: ", error))
+//Log In (NOTE: Move to login page)
+async function apiLogin(username, password){
+  try{
+    const req = await fetch("http://localhost:3000/api/v1/auth/login", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "username": username,
+        "password": password
+      })
+    });
+    // .then()
+    // // .then(res => res.json())
+    // .then(data => console.log("Data: ", data))
+    // .then(console.log("aaaaa"))
+    //   .catch(error => console.log("An error has occurred: ", error))
     
-//     if(lreq.ok){
-//       const authToken = await lreq.text();
-//       localStorage.setItem('authToken', authToken);
-//       console.log("Login successful")
-//       console.log(authToken); 
-//     }
-//     else{
-//       console.log('Login error');
-//       const lreqError = await lreq.text();
-//       console.error(errorData);
-//     }
-//   }
-//   catch(lreqError){
-//     console.error('Error occurred during login: ', lreqError);
-//   }
-// }
+    if(req.ok){
+      const authToken = await req.text();
+      localStorage.setItem('authToken', authToken);
+      console.log("Login successful. Username:", username)
+      // var appendtest = 'Bearer '+authToken
+      // console.log('Append test', appendtest); 
+      console.log('Token: ',authToken); //For debug, logs fetched token. Maybe comment out later
+    }
+    else{
+      const reqError = await req.text();
+      console.log('Login error: ',reqError);
+      console.error(reqError);
+    }
+  }
+  catch(reqError){
+    console.error('Error occurred during login: ', reqError);
+  }
+}
 
+//For debug: Function testing
 // apiReg();
-// apiLogin();
-
-// console.log(authToken);
+// apiLogin("terry", "wahoo");

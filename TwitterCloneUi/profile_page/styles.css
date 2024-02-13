@@ -115,10 +115,10 @@ body {
 /* profile box */
 .profileBox__input {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
   padding: 35px;
-  flex-direction: column; /* Align items in column */
+  flex-direction: column;
 }
 
 .profileBox__input img {
@@ -133,8 +133,8 @@ body {
 
 
 .username {
-  color: #fff; /* Text color */
-  margin-top: 10px; /* Space between picture and username */
+  color: #fff;
+  margin-top: 10px;
 }
 
 .profileBox {
@@ -158,8 +158,8 @@ body {
   height: 40px;
   margin-top: 20px;
   margin-left: auto;
-  margin-right: auto; /* Add this line to center horizontally */
-  display: block; /* Ensure it's a block element for margin: auto to work */
+  margin-right: auto;
+  display: block;
 }
 
 /* post */

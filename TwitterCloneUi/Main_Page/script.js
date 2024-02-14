@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var authToken = localStorage.getItem(authToken);
 
   function addPost(post) {
-    const postElement = createPostElement(post);
+    const postElement = createPostElement(post); //Rewrite this later to have post only show up in feed if fetch POST succeeds
     feed.appendChild(postElement);
 
     fetch('/api/v1/posts', {
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // apiLogin("terry", "wahoo");
-  populateFeed();
+  // populateFeed();
 
   tweetForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -123,9 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 //Liking
-// async function likePost(){
-//   fetch("http")
-// }
+//Following
 
 //Register (Copied from login scripts, for testing)
 // async function apiReg(username, password){

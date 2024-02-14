@@ -1,7 +1,7 @@
 //Register
 async function apiReg(username, password){
     try{
-      const req = await fetch("http://localhost:3000/api/v1/auth/register", {
+      const req = await fetch("/api/v1/auth/register", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ async function apiReg(username, password){
   //Log In (NOTE: Move to login page)
   async function apiLogin(username, password){
     try{
-      const req = await fetch("http://localhost:3000/api/v1/auth/login", {
+      const req = await fetch("/api/v1/auth/login", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

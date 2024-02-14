@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const postElement = createPostElement(post);
     feed.appendChild(postElement);
 
-    fetch('http://localhost:3000/api/v1/posts', {
+    fetch('/api/v1/posts', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   
   function populateFeed(){
-    fetch('http://localhost:3000/api/v1/posts', {
+    fetch('/api/v1/posts', {
     method: 'GET',
     headers: {
       'Content-type': 'application/json',
@@ -122,10 +122,15 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+//Liking
+// async function likePost(){
+//   fetch("http")
+// }
+
 //Register (Copied from login scripts, for testing)
 // async function apiReg(username, password){
 //   try{
-//     const req = await fetch("http://localhost:3000/api/v1/auth/register", {
+//     const req = await fetch("/api/v1/auth/register", {
 //       method: "POST",
 //       headers: {
 //         'Content-Type': 'application/json'
@@ -152,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //Log In (Copied from login scripts, for testing)
 // async function apiLogin(username, password){
 //   try{
-//     const req = await fetch("http://localhost:3000/api/v1/auth/login", {
+//     const req = await fetch("/api/v1/auth/login", {
 //       method: "POST",
 //       headers: {
 //         'Content-Type': 'application/json'
@@ -188,5 +193,5 @@ document.addEventListener('DOMContentLoaded', function () {
 // }
 
 //For debug: Function testing
-// apiReg();
-// apiLogin("terry", "wahoo");
+// apiReg("tony", "wahoo");
+// apiLogin("tony", "wahoo");

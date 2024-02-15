@@ -4,11 +4,41 @@ signupForm.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Simple Validation (You'll likely want something more robust)
-    const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const loginUsername = document.getElementById('username').value;
+    const loginEmail = document.getElementById('email').value;
+    const loginPassword = document.getElementById('password').value;
 
-    if (username === '' || email === '' || password === '') {
+    const loginData = {
+        username: loginUsername,
+        email: loginEmail,
+        password: loginPassword,
+    };
+
+    fetch("/api/v1/auth/login", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.body.stringify(loginData),
+    })
+    .then(Response => {
+        if (Response.ok) {
+            return Response.json();
+        }
+        throw new Error('failed to authenticate.');
+    })
+
+    .then(data => { 
+        const authToken = data.token;
+        console.log('Authentication successful. Token:', authToken);
+    })
+    
+    .catch(error => {
+        console.error('Error during Authentication:', error);
+    })
+    
+
+    if (loginUsername === '' || loginEmail === '' || loginPassword === '') {
         alert('Please fill in all fields');
         return;
     }

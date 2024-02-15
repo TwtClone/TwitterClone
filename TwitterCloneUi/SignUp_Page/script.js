@@ -44,5 +44,5 @@ signupForm.addEventListener('submit', function(event) {
     }
 
     // In a real app, you'd submit the signup data to your server here
-    console.log("Signup Data:", username, email, password); 
+    console.log("Signup Data:", loginUsername, loginEmail, loginPassword); 
 });

@@ -188,7 +188,7 @@ async function apiLogin(username, password){
     
     if(req.ok){
       const authToken = await req.text();
-      localStorage.setItem('authnToken', authToken)
+      localStorage.setItem('authToken', authToken)
       localStorage.setItem('currentUser', username)
       console.log("Login successful. Username:", localStorage.getItem('currentUser'))
       console.log('Token: ',localStorage.getItem('authToken')); //For debug, logs fetched token. Maybe comment out later
@@ -205,5 +205,5 @@ async function apiLogin(username, password){
 }
 
 //For debug: Function testing
-// apiReg("jackie", "wahoo");
-apiLogin("tony", "wahoo");
+// apiReg("tony", "wahoo");
+// apiLogin("Dante", "pizza");

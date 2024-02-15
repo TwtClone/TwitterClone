@@ -92,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
   
+  //Fetch every post saved in database and pass it through addPost to get it on client's timeline
   function populateFeed(){
     fetch('/api/v1/posts', {
     method: 'GET',

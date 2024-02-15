@@ -65,10 +65,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var authToken = localStorage.getItem('authToken');
   var currentUser = localStorage.getItem('currentUser');
 
+
+  //Just for putting tweet on (client-side) timeline. Refer to publishPost for putting stuff in API
   function addPost(post) {
     const postElement = createPostElement(post); //Rewrite this later to have post only show up in feed if fetch POST succeeds
     feed.appendChild(postElement);
+  }
 
+  //Publish post to API and put it in timeline
+  function publishPost(post){
     fetch('/api/v1/posts', {
       method: 'POST',
       headers: {
@@ -76,42 +81,16 @@ document.addEventListener('DOMContentLoaded', function () {
         'Authorization' : 'Bearer '+authToken
       },
       body: JSON.stringify({
-        'username': currentUser,
-        'content': post
+        "content": post.content
       })
     })
-      .then(response => response.json())
-      .then(console.log('Post published.'))
+      // .then(response => response.json())
+      .then(console.log('Post published by: ',post.username))
+      .then(addPost(post))
     .catch(error => {
       console.error('Error publishing post:', error);
     })
-
   }
-
-//Tweet fetch test
-async function postGet(){
-  try{
-    const req = await fetch("/api/v1/posts", {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization' : 'Bearer '+authToken
-      }
-    });
-    if (req.ok){
-      const reqData = await req.status;
-      console.log("Posts fetched: ", reqData);
-    }
-    else{
-      const reqError = await req.json;
-      throw(reqError);
-    }
-  }
-  catch(reqError){
-    console.error('Error occurred during post fetching: ', reqError);
-    // console.log("AuthToken Used: "+localStorage.getItem(authToken))
-  }
-}
   
   function populateFeed(){
     fetch('/api/v1/posts', {
@@ -123,13 +102,18 @@ async function postGet(){
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
-    })
-    .then(posts => {
-      posts.forEach(post => {
-        addPost(post);
+      var fetchedPosts = data
+      console.log(fetchedPosts)
+      fetchedPosts.forEach(element => {
+        // console.log(element.content)
+        addPost({username: element.postedBy, content: element.content})
       });
     })
+    // .then(data => {
+    //   data.forEach(element => {
+    //     console.log(element);
+    //   });
+    // })
     .catch(error => {
       console.error('Error fetching posts:', error);
     });
@@ -139,16 +123,15 @@ async function postGet(){
     event.preventDefault();
     const tweetContent = tweetInput.value.trim();
     if (tweetContent !== '') {
-      const newPost = { username: '', content: tweetContent };
-      addPost(newPost);
+      const newPost = { username: currentUser, content: tweetContent };
+      publishPost(newPost);
       tweetInput.value = '';
     }
   });
 
   //Function calls for testing
-  // populateFeed();
-  // addPost({username: currentUser, content: 'Post function test'});
-  postGet();
+  populateFeed();
+  // addPost({username: currentUser, content: 'Object interaction test'});
 });
 
 
@@ -221,5 +204,5 @@ async function apiLogin(username, password){
 }
 
 //For debug: Function testing
-// apiReg("tony", "wahoo");
+// apiReg("jackie", "wahoo");
 apiLogin("tony", "wahoo");

@@ -79,19 +79,3 @@ box-two button:hover {
     text-decoration: none;
     color: #1da1f2;
 }
-
-@media (mid-width: 320px) and (max-width: 480px) {
-    .container {
-        width: 90%; /* Adjust the width for smaller screens */
-        height: auto; /* Allow the height to adjust based on content */
-        box-shadow: none; /* Remove box shadow for smaller screens */
-    }
-    .container h1 {
-        font-size: 24px; /* Example: adjust font size for headings */
-    }
-    .box,
-    .box button {
-        flex-direction: column; /* Change flex direction for smaller screens */
-        align-items: flex-start; /* Adjust alignment for smaller screens if needed */
-    }
-}

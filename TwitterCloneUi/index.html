@@ -1,60 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+    rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous">
 </head>
-
 <body>
-    <script>
-        async function helloWorld() {
-            const res = await fetch("/api")
-            const text = await res.text()
-            console.log(text);
-        }
+    <div class="container"> 
+        <div class="box box-one">
+            <img src="https://img.icons8.com/color/50/000000/twitter--v1.png"/>
+            </div>
+        <h5>Create an Account</h5>
+        <div class="box box-two">
+            <form id="signup-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <!-- <input type="email" id="email" placeholder="Email" required> -->
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Sign Up</button> 
+            </form>
+        </div> 
+    </div>
 
-        async function register() {
-            const res = await fetch("/api/v1/auth/register", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: "joblipat",
-                    password: "password"
-                })
-            })
-            return await res.text()
-        }
-
-        async function login() {
-            const res = await fetch("/api/v1/auth/login", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: "joblipat",
-                    password: "password"
-                })
-            })
-            const token = await res.text()
-            console.log(token);
-
-        }
-
-        async function start() {
-            await helloWorld()
-            await register()
-            await login()
-        }
-
-        start()
-    </script>
-    <p>Hello world. This is a sample page. Check the console to see if the front end is connected to the UI! </p>
-    <a href="Main_Page/index.html">Move to main UI page</a>
+    <script src="script.js"></script>
 </body>
-
 </html>

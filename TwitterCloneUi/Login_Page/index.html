@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="box box-one">
+        <!-- <div class="box box-one">
             <img src="https://img.icons8.com/color/50/000000/twitter--v1.png"/>
             <button>
                 <img src="images/google.png" width="19">
@@ -28,16 +28,17 @@
                 <img src="images/apple.png" width="19">
                 <span>Sign in with Apple</span>
             </button>
-        </div>
-        <h5>Or</h5>
+        </div> -->
+        <!-- <h5>Or</h5> -->
         <div class="box box-two">
             <form>
-                <input type="text" placeholder="Phone,email, or username"/>
+                <input type="text" id="username" placeholder="Username" required/>
+                <input type="password" id="password" placeholder="Password" required/>
             </form>
-            <button class="next-btn">Next</button>
-            <button>
+            <button type="submit" class="next-btn">Next</button>
+            <!-- <button>
                 <span>Forget password</span>
-            </button>
+            </button> -->
         </div>
         <p>Don't have an account <a href="../SignUp_Page/">Sign Up</a></p>
     </div>

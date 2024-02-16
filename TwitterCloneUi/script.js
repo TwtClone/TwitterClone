@@ -5,16 +5,19 @@ signupForm.addEventListener('submit', function(event) {
 
     // Simple Validation (You'll likely want something more robust)
     const username = document.getElementById('username').value;
-    const email = document.getElementById('email').value;
+    // const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     
-    if (username === '' || email === '' || password === '') {
+    if (username === '' || password === '') {
         alert('Please fill in all fields');
         return;
     }
+    else{
+      apiReg(username, password);
+    }
 
     // In a real app, you'd submit the signup data to your server here
-    console.log("Signup Data:", username, email, password); 
+    // console.log("Signup Data:", username, email, password); 
 });
 
 //Register
@@ -33,6 +36,7 @@ async function apiReg(username, password){
       if (req.ok){
         const reqData = await req.json;
         console.log("User created: ", reqData);
+        window.location.href='/Login_Page/index.html';
       }
       else{
         const reqError = await req.json;

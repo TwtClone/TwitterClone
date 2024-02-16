@@ -229,22 +229,22 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: 14px;
-    padding: 2px;
+    padding: 3px;
   }
 
   .sidebarOption .material-icons,
   .fa-twitter {
-    padding: 9px; /* Adjust padding for smaller screens if needed */
+    padding: 10px; 
+    margin-right: 100px;
   }
 
   .sidebarOption h2 {
-    font-size: 18px; /* Adjust font size for smaller screens if needed */
-    margin-right: 10px; /* Adjust margin for smaller screens if needed */
+    font-size: 0px; 
+    margin-right: 500px; /* Adjust margin for smaller screens if needed */
   }
 
   .sidebarOption:hover {
     background-color: var(--twitter-background);
-    border-radius: 20px;
     color: var(--twitter-color);
     transition: color 100ms ease-out;
   }
@@ -254,8 +254,9 @@ body {
   }
 
   .sidebar__tweet {
-    height: 35px; /* Adjust height for smaller screens if needed */
-    margin-top: 7px; /* Adjust margin-top for smaller screens if needed */
+    font-size: 0px;
+    height: 0px; 
+    margin-bottom: -11px; 
   }
 
   body {
@@ -263,115 +264,108 @@ body {
   }
 
   .sidebar {
-    flex: 0; /* Set flex to 0 to take up full width on smaller screens */
-    margin-top: 10px; /* Adjust margin-top for smaller screens if needed */
-    
-    padding-right: 10px; /* Adjust padding-right for smaller screens if needed */
-  }
-
-  .fa-twitter {
-    font-size: 30px; /* Adjust font size for smaller screens if needed */
+    flex: 0px; 
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px; 
   }
 
   .feed {
-    flex: 1; /* Adjust flex value for smaller screens if needed */
-    border-right: none; /* Remove right border on smaller screens */
-    min-width: 100%; /* Set min-width to 100% to take up full width on smaller screens */
+    flex: 0px; 
+    min-width: 46.48%;
   }
 
   .feed__header {
-    position: static; /* Remove sticky positioning on smaller screens */
-    border-radius: 0; /* Remove border-radius on smaller screens */
+    position: sticky;
+    border: 0px; 
   }
 
   .feed__header h2 {
-    font-size: 16px; /* Adjust font size for smaller screens if needed */
+    font-size: 13px; 
   }
 
   .feed::-webkit-scrollbar {
-    display: block; /* Revert scrollbar display on smaller screens if needed */
-  }
+    display: none;
+  } 
 
   .feed {
-    -ms-overflow-style: auto; /* Revert MS scrollbar style on smaller screens if needed */
-    scrollbar-width: auto; /* Revert scrollbar width on smaller screens if needed */
+    -ms-overflow-style: auto; 
+    scrollbar-width: auto; 
   }
 
   .tweetbox__input img {
-    height: 30px; /* Adjust height for smaller screens if needed */
+    height: 30px; 
   }
 
   .tweetBox {
-    padding-bottom: 10px; /* Adjust padding-bottom for smaller screens if needed */
-    border-bottom: 1px solid var(--twitter-background); /* Adjust border-bottom for smaller screens if needed */
-    padding-right: 5px; /* Adjust padding-right for smaller screens if needed */
+    padding-bottom: 12px; 
+    border-bottom: 5px solid var(--twitter-background); 
+    padding-right: 0px;
   }
 
   .tweetBox form {
-    margin-top: 10px; /* Add some top margin for spacing on smaller screens */
+    margin-top: -20px; 
+    margin-right: 150px;
   }
 
   .tweetbox__input {
-    padding: 15px; /* Adjust padding for smaller screens if needed */
+    padding-left: 0px;
   }
   
   .tweetbox__input input {
-    font-size: 18px; /* Adjust font size for smaller screens if needed */
-    margin-left: 10px; /* Adjust margin-left for smaller screens if needed */
+    font-size: 15px; 
+    margin-left: 10px; 
   }
 
   .tweetBox__tweetButton {
-    width: 60px; /* Adjust width for smaller screens if needed */
-    height: 30px; /* Adjust height for smaller screens if needed */
-    margin-top: 15px; /* Adjust margin-top for smaller screens if needed */
+    width: 60px; 
+    height: 30px; 
+    margin-top: -16px;
   }
 
   .post__avatar img {
-    height: 30px; /* Adjust height for smaller screens if needed */
+    height: 30px;
   }
 
   .post {
-    padding-bottom: 5px; /* Adjust padding-bottom for smaller screens if needed */
+    margin-left: 0px;
+    padding-bottom: 4px; 
   }
 
   .post__body img {
-    width: 100%; /* Set the width to 100% for responsive images on smaller screens */
-    border-radius: 0px; /* Remove border-radius for smaller screens if needed */
+    width: 100%; 
+    border-radius: 0px; 
   }
 
   .post__footer {
-    flex-direction: row; /* Change flex-direction for smaller screens to stack items vertically */
-    align-items: center; /* Center items in the column layout */
-    margin-top: 4px; /* Adjust margin-top for smaller screens if needed */
+    flex-direction: row; 
+    align-items: center; 
+    margin-top: 15%;
   }
 
   .post__badge {
-    font-size: 12px !important; /* Adjust font size for smaller screens if needed */
-    margin-right: 0; /* Remove right margin for smaller screens if needed */
-    margin-top: 5px; /* Add top margin for spacing on smaller screens */
+    font-size: 12px !important; 
+    margin-right: 0px; 
+    margin-top: 0px;
   }
 
   .post__headerText h3 {
-    font-size: 14px; /* Adjust font size for smaller screens if needed */
-    margin-bottom: 3px; /* Adjust margin-bottom for smaller screens if needed */
+    font-size: 14px; 
+    margin-bottom: 3px; 
   }
 
   .post__headerDescription {
-    font-size: 14px; /* Adjust font size for smaller screens if needed */
-    margin-bottom: 8px; /* Adjust margin-bottom for smaller screens if needed */
+    font-size: 14px;
+    margin-bottom: 8px;
   }
 
   .post__body {
-    flex: none; /* Remove flex property for smaller screens */
-    width: 100%; /* Set width to 100% for full width on smaller screens */
-    padding: 3px; /* Adjust padding for smaller screens if needed */
+    flex: none; 
+    width: 100%; 
+    padding: 13px; 
   }
 
   .post__avatar {
-    padding: 10px; /* Adjust padding for smaller screens if needed */
+    padding: 10px;
   }
-
-
-
-
 }

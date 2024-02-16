@@ -272,7 +272,7 @@ body {
 
   .feed {
     flex: 0px; 
-    min-width: 46.48%;
+    min-width: 45%;
   }
 
   .feed__header {

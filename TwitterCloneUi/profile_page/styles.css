@@ -268,11 +268,11 @@ body {
     padding: 0px;
   }
 
-  .sidebar {
+  .sidebar { 
     flex: 0px; 
     margin-top: 20px;
     margin-left: 0px;
-    margin-right: 0px; 
+    margin-right: 0px;  
   }
 
   .feed {
@@ -299,33 +299,30 @@ body {
   }
 
   .profileBox__input {
-    padding: 15px; /* Adjusted padding for a more compact look on smaller screens */
-    border-radius: 8px; /* Rounded corners for a softer appearance */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow for a lifted effect */
+    padding: 15px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
   }
 
   .profileBox__input img {
-    height: 150px; /* Adjusted height for better fit on smaller screens */
-    border-radius: 50%; /* Make the border-radius circular for the image */
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow for the image */
+    height: 150px; 
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); 
   }
 
   .profileBox {
-    /* Additional styles for the .profileBox class on screen sizes between 320px and 480px */
-    padding-bottom: 5px; /* Adjusted padding for a more compact look on smaller screens */
-    border-bottom: 4px solid var(--twitter-background); /* Adjusted border size */
-    padding-right: 5px; /* Adjusted padding for a more compact look on smaller screens */
+    padding-bottom: 5px; 
+    border-bottom: 4px solid var(--twitter-background); 
+    padding-right: 5px; 
   }
 
   .profileBox form {
-    /* Additional styles for the form inside .profileBox on screen sizes between 320px and 480px */
-    margin-top: 10px; /* Adjusted margin for better spacing */
+    margin-top: 10px; 
   }
 
   .profileBox__followButton {
-    /* Additional styles for the .profileBox__followButton on screen sizes between 320px and 480px */
-    width: 100%; /* Make the button take up the full width of the container */
-    max-width: 200px; /* Set a maximum width to prevent excessive stretching */
+    width: 100%;
+    max-width: 200px; 
   }
   .post__avatar img {
     height: 30px;

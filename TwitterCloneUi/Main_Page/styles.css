@@ -222,3 +222,7 @@ body {
 .post__footer .material-icons:nth-child(3):hover {
   color: rgb(56, 255, 139);
 }
+
+@media (min-width: 320px) and (max-width:480) {
+  
+}

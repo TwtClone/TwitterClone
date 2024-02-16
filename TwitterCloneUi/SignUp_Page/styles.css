@@ -79,3 +79,21 @@ box-two button:hover {
     text-decoration: none;
     color: #1da1f2;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .container {
+        width: 90%; 
+        height: auto; 
+        box-shadow: none;
+    }
+    .container h1 {
+        font-size: 24px;
+    }
+    .box-one {
+        margin-top: 10px; 
+    }
+    h5 {
+        margin: 10px 0; 
+        font-size: 1.2rem;
+    }
+}

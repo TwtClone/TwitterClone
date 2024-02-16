@@ -71,6 +71,7 @@ async function apiLogin(username, password){
     if(req.ok){
       const authToken = await req.text();
       localStorage.setItem('authToken', authToken);
+      localStorage.setItem('currentUser', username);
       console.log("Login successful. Username:", username)
       // var appendtest = 'Bearer '+authToken
       // console.log('Append test', appendtest); 

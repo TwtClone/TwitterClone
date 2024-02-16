@@ -1,90 +1,62 @@
 # Twitter Clone
 
-## Repository Owner
+## Website Reflection
 
-- Each group must assign one repository owner
-- The repository owner must fork this repository. Only the repository owner should fork the repository
-  - This could be done by clicking the "Fork" button on the top right.
-- The repository owner must invite their goupmates as collaborators in their fork
-  - This could be done by going to Settings>Collaborators>Add people
-- The group must use the fork to collaborate on their project. They must commit and push their code in their forks.
-- The group must submit the link of the repository of the repository owner in the submission bin
+### 1. Explanation of Accomplishments:
+   - Describe how each criterion was achieved in the website.
 
-## Getting Started
+## Concepts from Class
 
-Follow these steps to set up and run the Twitter Clone project:
+### 2. Integration of Class Concepts:
+   - Discuss where and how concepts discussed in class are evident in the website.
+   The project is comprised of HTML, CSS, and JS as a base, and various concepts were applied like flexboxes being used to display elements such as the sidebar, DOM manipulation being used to create the layout of the main feed, CSS being used to style the pages, and JavaScript being used to populate the feed or publish posts using API endpoints.
 
-1. **Install Node.js**:
-   Make sure you have Node.js installed on your system. If not, download and install it from the official website.
+## Design Inspiration
 
-2. **Fork and Clone the Repository**:
+### 3. Design Inspiration:
+   - Explain the inspiration behind the design of the website.
+   The inspiration behind the design of the website it mainly Twitter/X, as the features that were included matched those in Twitter.
 
-   - Clone your forked repository to your local machine using Git.
+## Content Creation Approach
 
-3. **Install Dependencies**:
+### 4. Content Creation Approach:
+   - Describe the approach taken to create the content of the website.
+   The approach taken to the creation of the website's content was attempting to clone Twitter with our know-how.
 
-   - Open a terminal and navigate to the cloned repository.
-   - Install the API dependencies by running the command:
-     ```
-     npm run init-api
-     ```
-   - Install the UI dependencies by running the command:
-     ```
-     npm run init-ui
-     ```
+## Creativity
 
-4. **Run the API**:
-
-   - Start the API server by running:
-     ```
-     npm run start-api
-     ```
-   - Visit `http://localhost:3000/api` in your web browser to check if the API is up and running.
-   - Visit `http://localhost:3000/api/docs` in your web browser to see the documentation of the API.
-
-5. **Run the UI**:
-
-   - Open a new terminal window (keep the API terminal running).
-   - Start the UI development server with:
-     ```
-     npm run start-ui
-     ```
-   - Visit `http://127.0.0.1:8080` in your web browser to see if the UI is working.
-
-6. **Start Developing**:
-   - Begin working on the UI in the `TwitterCloneUi` folder.
-   - Add your HTML, CSS, and JS files to build the Twitter Clone interface.
-
-Remember: **Do not modify the `TwitterCloneApi` folder**; it contains essential API code.
+### 5. Creativity in the Website:
+   - Highlight specific elements demonstrating creativity in the website.
+   Creativity was used in styling choices and approaches to implementing features.
 
 ## Deployment
 
-To deploy this application you need to to use netlify. See the [documentation](https://docs.netlify.com/) to see how deployments are done in Netlify.
+### 6. Deployment Tools:
+   - Specify the tools or platforms used to deploy the website.
+   The website was not deployed.
 
-The netlify.toml file contains nearly all the necessary values needed for deploying the application. There are no additional values needed to be set up except the JWT_KEY environment variable
+## Team Collaboration
 
-## Step by step Deployment Guide
+### 7. Team Collaboration:
+   - Describe the team's collaborative process during the project.
+   The collaborative process was just that of simple consolidation of feature implementations, and keeping the rest of the team updated on work being done.
 
-The deployment process for netlify should be straight forward, but here's a step by step guide in case you need it.
+### 8. Task Division:
+   - Outline how tasks were divided among team members and their responsibilities.
+   Tasks were divided on a per-feature basis, with one person being in charge of one part of the website at a time.
 
-1. Make sure that your forked is synced
-2. Visit [the netlify website](https://netlify.app/) and click on "Deploy to Netlify"
-3. Create an account and sign up with your github profile
-4. Click on the "Add new site" button and select "Import and Exisitng Project"
-5. Click on "Deploy with Github". Netlify might ask for Authentication in which case you would need to allow Netlify.
-6. Select your repository from the list.
-7. Set the site name to your desired name.
-8. The `Build command`, `Publish directory`, and `Functions directory` should be prefilled with the necessary information. If not, make sure to sync your fork and check again.
-9. Click on "Deploy" and wait a couple of minutes for netlify to deploy your application. Once netlify is finished, a green tag with the text "Published" should appear in "Production Deploys"
-10. Et voila, you have deployed your application 🎉 Now you need to step up the JWT_KEY
+### 9. Conflict Prevention:
+   - Explain the strategies used to prevent conflicts in code changes.
+   The per-feature task division made it so that conflicts didn't really crop up much, aside from file structure changes and cleanup.
 
-### Setting up the JWT_KEY
+## Future Improvements
 
-The JWT_KEY is used to generate the tokens and make sure that the tokens generated by the system is indeed generated by the system itself. Otherwise, attackers might be able to generate tokens themselves and compromise the system. This is why the key needs to be generated and entered manually. They must not be known to anyone but the developers.
+### 10. Future Improvements:
+   - Discuss potential enhancements or additions for the website in the future.
+   Our inexperience led to features taking a while to properly implement because it's our first time doing so, and things certainly could've been done in a cleaner way, which could be a potential avenue for enhancement in the future.
 
-1. To setup the JWT_KEY environment variable, you would first need to generate a secret key. You may refer to [this](https://dev.to/tkirwa/generate-a-random-jwt-secret-key-39j4) tutorial for generating a secret key
-   - Once generated, your private key may look something like this `ddcb75b4f402f240234eec4bf175fa9e8c15aea5...`
-2. Once you have created a secret key, you need to add your private key as an environment variable. The name of the key must be `JWT_KEY` and the value is your private key.
-   - You may refer to [this](https://docs.netlify.com/environment-variables/get-started/#site-environment-variables) documentation for a tutorial on how to set environment variables in netlify
+## Additional Notes
 
-Happy coding! 🚀🐦
+### 11. Other Noteworthy Thoughts:
+   - Include any additional thoughts or details about the project.
+

@@ -139,8 +139,8 @@ body {
 
 .profileBox {
   padding-bottom: 10px;
-  border-bottom: 8px solid var(--twitter-background);
-  padding-right: 10px;
+  border-bottom: 4px solid var(--twitter-background);
+  padding-right: 5px;
 }
 
 .profileBox form {
@@ -226,4 +226,150 @@ body {
 
 .post__footer .material-icons:nth-child(3):hover {
   color: rgb(56, 255, 139);
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .sidebarOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 3px;
+  }
+
+  .sidebarOption .material-icons,
+  .fa-twitter {
+    padding: 10px; 
+    margin-right: 100px;
+  }
+
+  .sidebarOption h2 {
+    font-size: 0px; 
+    margin-right: 500px; /* Adjust margin for smaller screens if needed */
+  }
+
+  .sidebarOption:hover {
+    background-color: var(--twitter-background);
+    color: var(--twitter-color);
+    transition: color 100ms ease-out;
+  }
+
+  .sidebarOption.active {
+    color: var(--twitter-color);
+  }
+
+  .sidebar__tweet {
+    font-size: 0px;
+    height: 0px; 
+    margin-bottom: -11px; 
+  }
+
+  body {
+    padding: 0px;
+  }
+
+  .sidebar {
+    flex: 0px; 
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-right: 0px; 
+  }
+
+  .feed {
+    flex: 0px; 
+    min-width: 40%;
+  }
+
+  .feed__header {
+    position: sticky;
+    border: 40px; 
+  }
+
+  .feed__header h2 {
+    font-size: 13px; 
+  }
+
+  .feed::-webkit-scrollbar {
+    display: none;
+  } 
+
+  .feed {
+    -ms-overflow-style: auto; 
+    scrollbar-width: auto; 
+  }
+
+  .profileBox__input {
+    padding: 15px; /* Adjusted padding for a more compact look on smaller screens */
+    border-radius: 8px; /* Rounded corners for a softer appearance */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow for a lifted effect */
+  }
+
+  .profileBox__input img {
+    height: 150px; /* Adjusted height for better fit on smaller screens */
+    border-radius: 50%; /* Make the border-radius circular for the image */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow for the image */
+  }
+
+  .profileBox {
+    /* Additional styles for the .profileBox class on screen sizes between 320px and 480px */
+    padding-bottom: 5px; /* Adjusted padding for a more compact look on smaller screens */
+    border-bottom: 4px solid var(--twitter-background); /* Adjusted border size */
+    padding-right: 5px; /* Adjusted padding for a more compact look on smaller screens */
+  }
+
+  .profileBox form {
+    /* Additional styles for the form inside .profileBox on screen sizes between 320px and 480px */
+    margin-top: 10px; /* Adjusted margin for better spacing */
+  }
+
+  .profileBox__followButton {
+    /* Additional styles for the .profileBox__followButton on screen sizes between 320px and 480px */
+    width: 100%; /* Make the button take up the full width of the container */
+    max-width: 200px; /* Set a maximum width to prevent excessive stretching */
+  }
+  .post__avatar img {
+    height: 30px;
+  }
+
+  .post {
+    margin-left: 0px;
+    padding-bottom: 1px; 
+  }
+
+  .post__body img {
+    width: 95%; 
+    border-radius: 10px; 
+  }
+
+  .post__footer {
+    flex-direction: row; 
+    align-items: center; 
+    margin-top: 3%;
+  }
+
+  .post__badge {
+    font-size: 12px !important; 
+    margin-right: 10px; 
+    margin-top: 10px;
+  }
+
+  .post__headerText h3 {
+    font-size: 14px; 
+    margin-bottom: 3px; 
+  }
+
+  .post__headerDescription {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .post__body {
+    flex: none; 
+    width: 95%; 
+    padding: 10px; 
+  }
+
+  .post__avatar {
+    padding: 0px;
+  }
 }

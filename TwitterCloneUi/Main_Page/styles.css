@@ -240,7 +240,7 @@ body {
 
   .sidebarOption h2 {
     font-size: 0px; 
-    margin-right: 500px; /* Adjust margin for smaller screens if needed */
+    margin-right: 500px;
   }
 
   .sidebarOption:hover {
@@ -272,7 +272,7 @@ body {
 
   .feed {
     flex: 0px; 
-    min-width: 45%;
+    min-width: 45px;
   }
 
   .feed__header {

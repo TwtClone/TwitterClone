@@ -77,3 +77,35 @@ body{
     text-decoration: none;
     color: #00acee;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .container {
+        width: 90%; /* Adjust the width for smaller screens */
+        height: auto; /* Allow the height to adjust based on content */
+        max-width: 100%; /* Ensure the container doesn't exceed the screen width */
+    }
+    .box button {
+        width: 90%; /* Adjust the width for smaller screens */
+        max-width: 100%; /* Ensure the button doesn't exceed the screen width */
+        margin-bottom: 10px; /* Add some spacing at the bottom for better display on smaller screens */
+    }
+    .box-one i {
+        font-size: 1.5rem; /* Adjust the font size for smaller screens */
+        margin-bottom: 10px; /* Add some spacing at the bottom for better display on smaller screens */
+    }
+    .box-two input::placeholder {
+        font-size: 0.9rem; /* Adjust the font size for smaller screens */
+    }
+    .box-two .next-btn {
+        width: 90%; /* Adjust the width for smaller screens */
+        max-width: 100%; /* Ensure the button doesn't exceed the screen width */
+        margin-top: 10px; /* Add some spacing at the top for better display on smaller screens */
+    }
+    .container p {
+        font-size: 0.6rem; /* Adjust the font size for smaller screens */
+        margin-bottom: 10px; /* Add some spacing at the bottom for better display on smaller screens */
+    }
+    .container p a {
+        font-size: 0.6rem; /* Adjust the font size for smaller screens */
+    }
+}

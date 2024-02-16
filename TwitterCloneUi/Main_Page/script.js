@@ -204,6 +204,12 @@ async function apiLogin(username, password){
   }
 }
 
+function apiLogout(){
+  localStorage.setItem('authToken', '');
+  localStorage.setItem('currentUser', '');
+  window.href='../Login_Page/index.html'
+}
+
 //For debug: Function testing
 // apiReg("tony", "wahoo");
 // apiLogin("Dante", "pizza");

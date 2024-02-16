@@ -80,18 +80,18 @@ body{
 
 @media (min-width: 320px) and (max-width: 480px) {
     .container {
-        width: 90%; /* Adjust the width for smaller screens */
-        height: auto; /* Allow the height to adjust based on content */
-        max-width: 100%; /* Ensure the container doesn't exceed the screen width */
+        width: 90%; 
+        height: auto; 
+        max-width: 100%;
     }
     .box button {
-        width: 90%; /* Adjust the width for smaller screens */
-        max-width: 100%; /* Ensure the button doesn't exceed the screen width */
-        margin-bottom: 10px; /* Add some spacing at the bottom for better display on smaller screens */
+        width: 90%; 
+        max-width: 100%; 
+        margin-bottom: 10px; 
     }
     .box-one i {
-        font-size: 1.5rem; /* Adjust the font size for smaller screens */
-        margin-bottom: 10px; /* Add some spacing at the bottom for better display on smaller screens */
+        font-size: 1.5rem; 
+        margin-bottom: 10px; 
     }
     .box-two input::placeholder {
         font-size: 0.9rem; /* Adjust the font size for smaller screens */

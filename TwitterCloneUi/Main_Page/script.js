@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //Just for putting tweet on (client-side) timeline. Refer to publishPost for putting stuff in API
   function addPost(post) {
-    const postElement = createPostElement(post); //Rewrite this later to have post only show up in feed if fetch POST succeeds
+    const postElement = createPostElement(post);
     feed.appendChild(postElement);
   }
 
@@ -207,7 +207,8 @@ async function apiLogin(username, password){
 function apiLogout(){
   localStorage.setItem('authToken', '');
   localStorage.setItem('currentUser', '');
-  window.href='../Login_Page/index.html'
+  console.log("Logging out...")
+  window.location.href='../index.html'
 }
 
 //For debug: Function testing

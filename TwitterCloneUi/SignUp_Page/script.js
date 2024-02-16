@@ -16,3 +16,30 @@ signupForm.addEventListener('submit', function(event) {
     // In a real app, you'd submit the signup data to your server here
     console.log("Signup Data:", username, email, password); 
 });
+
+//Register
+async function apiReg(username, password){
+    try{
+      const req = await fetch("/api/v1/auth/register", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "username": username,
+          "password": password
+        })
+      });
+      if (req.ok){
+        const reqData = await req.json;
+        console.log("User created: ", reqData);
+      }
+      else{
+        const reqError = await req.json;
+        throw(reqError);
+      }
+    }
+    catch(reqError){
+      console.error('Error occurred during registration: ', reqError);
+    }
+  }

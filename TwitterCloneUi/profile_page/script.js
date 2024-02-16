@@ -31,18 +31,19 @@ document.addEventListener('DOMContentLoaded', function () {
   
       const postFooter = document.createElement('div');
       postFooter.classList.add('post__footer');
-      const repeatIcon = document.createElement('span');
-      repeatIcon.classList.add('material-icons');
-      repeatIcon.textContent = 'repeat';
-      const favoriteIcon = document.createElement('span');
-      favoriteIcon.classList.add('material-icons');
-      favoriteIcon.textContent = 'favorite_border';
-      const publishIcon = document.createElement('span');
-      publishIcon.classList.add('material-icons');
-      publishIcon.textContent = 'publish';
-      postFooter.appendChild(repeatIcon);
-      postFooter.appendChild(favoriteIcon);
-      postFooter.appendChild(publishIcon);
+        
+      const retweetIcon = document.createElement('span');
+      retweetIcon.classList.add('material-icons');
+      retweetIcon.textContent = 'repeat';
+      const heartIcon = document.createElement('span');
+      heartIcon.classList.add('material-icons');
+      heartIcon.textContent = 'favorite_border';
+      const shareIcon = document.createElement('span');
+      shareIcon.classList.add('material-icons');
+      shareIcon.textContent = 'publish';  
+      postFooter.appendChild(retweetIcon);
+      postFooter.appendChild(heartIcon);
+      postFooter.appendChild(shareIcon);
   
       postBody.appendChild(postFooter);
   

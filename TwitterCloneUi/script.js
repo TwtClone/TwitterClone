@@ -14,6 +14,7 @@ signupForm.addEventListener('submit', function(event) {
     }
     else{
       apiReg(username, password);
+      // console.log('register');
     }
 
     // In a real app, you'd submit the signup data to your server here

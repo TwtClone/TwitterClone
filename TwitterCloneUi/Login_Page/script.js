@@ -25,7 +25,9 @@
 //     }
 //   }
 
-document.addEventListener('submit', function(event) {
+const loginForm = document.getElementById('login-form');
+
+loginForm.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Simple Validation (You'll likely want something more robust)
@@ -39,6 +41,8 @@ document.addEventListener('submit', function(event) {
     }
     else{
       apiLogin(username, password);
+      // window.location.href='../Main_Page/index.html';
+      // console.log('next pressed.');
     }
 
     // In a real app, you'd submit the signup data to your server here
@@ -54,7 +58,8 @@ async function apiLogin(username, password){
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        
+        "username": username,
+        "password": password
       })
     });
     // .then()

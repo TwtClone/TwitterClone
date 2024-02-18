@@ -33,7 +33,7 @@
 
 ### 6. Deployment Tools:
    Specify the tools or platforms used to deploy the website.
-   - The website was not deployed.
+   - The website was deployed using netlify.
 
 ## Team Collaboration
 

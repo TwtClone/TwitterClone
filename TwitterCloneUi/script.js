@@ -37,7 +37,7 @@ async function apiReg(username, password){
       if (req.ok){
         const reqData = await req.json;
         console.log("User created: ", reqData);
-        window.location.href='/Login_Page/index.html';
+        // window.location.href='/Login_Page/index.html';
       }
       else{
         const reqError = await req.json;
